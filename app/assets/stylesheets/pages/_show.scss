@@ -5,11 +5,11 @@
   max-width: 150px;
 }
 
-.delete-link {
+.delete-edit-link {
   color: black;
 }
 
-.action-links {
+.back-new-links {
   margin-top: 5px;
 }
 
@@ -21,4 +21,8 @@
     background: linear-gradient(#167FFB, #0F60C4);
     transition: background 0.3s ease;
     border: 1px solid #0F60C4;
+  }
+
+  #show-title {
+    margin: 20px;
   }

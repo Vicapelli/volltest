@@ -1,4 +1,4 @@
-<h1>Detalhes deste aparelho</h1>
+<h1 id="show-title">Detalhes deste aparelho</h1>
 <p>Numero: <%= @aparelho.numero %></p>
 <p>Operadora: <%= @aparelho.operadora.capitalize %></p>
 <% if @aparelho.status == true %>
@@ -7,13 +7,14 @@
   <p>Este aparelho <strong>não está ativo</strong></p>
   <p><%= link_to  "Deseja ativar?", edit_aparelho_path(@aparelho), class: "btn btn-warning" %></p>
 <% end %>
+<p>Cadastrado desde: <%= @aparelho.created_at %></p>
 
 <div class="show-links d-flex justify-content-between">
-  <div class="action-links">
+  <div class="back-new-links">
     <%= link_to  "Voltar", aparelhos_path, class: "btn btn-gradient"%>
-    <%= link_to  "Novo aparelho", new_aparelho_path, class: "btn btn-dark" %>
   </div>
-  <div class="delete-link">
+  <div class="delete-edit-link">
+    <%= link_to  "Editar", edit_aparelho_path(@aparelho), class: "btn btn-secondary" %>
     <%= link_to  "Excluir", aparelho_path(@aparelho), method: :delete, class: "btn btn-danger" %>
   </div>
 </div>
