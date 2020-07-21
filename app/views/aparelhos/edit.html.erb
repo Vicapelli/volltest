@@ -1,0 +1,11 @@
+<div class="container mt-2 pb-2">
+<h1>Cadastre um novo aparelho</h1>
+  <%= simple_form_for @aparelho do |f| %>
+    <%= f.input :numero %>
+    <%= f.input :operadora %>
+    <%= f.input :status, :as => :boolean, label: 'Ativo'%>
+    <div class="d-flex justify-content-between">
+      <%= f.submit "Cadastrar", class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>

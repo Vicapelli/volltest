@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_07_21_132716) do
   create_table "aparelhos", force: :cascade do |t|
     t.string "numero"
     t.string "operadora"
-    t.boolean "status"
+    t.boolean "status", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

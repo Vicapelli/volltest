@@ -1,5 +1,5 @@
 class AparelhosController < ApplicationController
-  before_action :set_aparelho, only: [:show, :destroy]
+  before_action :set_aparelho, only: [:show, :edit, :update, :destroy]
 
   def index
     @aparelhos = Aparelho.all
@@ -14,13 +14,21 @@ class AparelhosController < ApplicationController
 
   def create
     @aparelho = Aparelho.new(aparelho_params)
-    if @aparelho = Aparelho.save
+    if @aparelho.save
       redirect_to aparelho_path(@aparelho)
     end
   end
 
+  def edit
+  end
+
+  def update
+    @aparelho.update(aparelho_params)
+    redirect_to aparelho_path(@aparelho)
+  end
+
   def destroy
-    @aparelho = Aparelho.destroy
+    @aparelho.destroy
     redirect_to aparelhos_path
   end
 

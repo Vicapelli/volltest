@@ -1,0 +1,13 @@
+<h1>Aparelhos cadastrados</h1>
+
+<div class="aparelhos">
+  <% @aparelhos.each do |aparelho| %>
+    <div class="card-aparelhos">
+      <div class="card-aparelhos-infos">
+        <p><%= aparelho.operadora.capitalize %></p>
+        <p><%= aparelho.numero %></p>
+        <%= link_to "detalhes", aparelho_path(aparelho) %>
+      </div>
+    </div>
+  <% end %>
+</div>
