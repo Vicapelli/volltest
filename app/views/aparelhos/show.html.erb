@@ -1,12 +1,15 @@
 <h1 id="show-title">Detalhes deste aparelho</h1>
+
 <p>Numero: <%= @aparelho.numero %></p>
 <p>Operadora: <%= @aparelho.operadora.capitalize %></p>
+
 <% if @aparelho.status == true %>
   <p>Este aparelho <strong>está ativo</strong></p>
 <% else %>
   <p>Este aparelho <strong>não está ativo</strong></p>
   <p><%= link_to  "Deseja ativar?", edit_aparelho_path(@aparelho), class: "btn btn-warning" %></p>
 <% end %>
+
 <p>Cadastrado desde: <%= @aparelho.created_at %></p>
 
 <div class="show-links d-flex justify-content-between">
