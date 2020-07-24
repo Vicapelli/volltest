@@ -24,7 +24,6 @@ class AparelhosController < ApplicationController
   def update
     if @aparelho.update(aparelho_params)
       render json: @aparelho
-      redirect_to aparelho_path(@aparelho)
     else
       render json: @aparelho.errors, status: :unprocessable_entity
     end
