@@ -1,30 +1,34 @@
 class AparelhosController < ApplicationController
-  before_action :set_aparelho, only: [:show, :edit, :update, :destroy]
+  before_action :set_aparelho, only: [:show, :update, :destroy]
 
   def index
     @aparelhos = Aparelho.all
+    render json: @aparelhos
   end
 
   def show
+    render json: @aparelho
   end
 
-  def new
-    @aparelho = Aparelho.new
-  end
 
   def create
     @aparelho = Aparelho.new(aparelho_params)
     if @aparelho.save
-      redirect_to aparelho_path(@aparelho)
+      render json: @aparelho, status: :created, location: @aparelho
+    else
+      render json: @aparelho.errors, status: :unprocessable_entity
     end
   end
 
-  def edit
-  end
 
   def update
-    @aparelho.update(aparelho_params)
-    redirect_to aparelho_path(@aparelho)
+    if @aparelho.update(aparelho_params)
+      render json: @aparelho
+      redirect_to aparelho_path(@aparelho)
+    else
+      render json: @aparelho.errors, status: :unprocessable_entity
+    end
+    
   end
 
   def destroy
