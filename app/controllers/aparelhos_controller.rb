@@ -3,29 +3,32 @@ class AparelhosController < ApplicationController
 
   def index
     @aparelhos = Aparelho.all
-    render json: @aparelhos
+   # render json: @aparelhos
   end
 
   def show
-    render json: @aparelho
+   # render json: @aparelho
   end
 
+  def new
+  end
 
   def create
     @aparelho = Aparelho.new(aparelho_params)
     if @aparelho.save
-      render json: @aparelho, status: :created, location: @aparelho
+      redirect_to aparelhos_path
+     # render json: @aparelho, status: :created, location: @aparelho
     else
-      render json: @aparelho.errors, status: :unprocessable_entity
+    #  render json: @aparelho.errors, status: :unprocessable_entity
     end
   end
 
 
   def update
     if @aparelho.update(aparelho_params)
-      render json: @aparelho
+     # render json: @aparelho
     else
-      render json: @aparelho.errors, status: :unprocessable_entity
+     # render json: @aparelho.errors, status: :unprocessable_entity
     end
     
   end

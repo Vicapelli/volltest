@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module Volltest
   class Application < Rails::Application
-    config.api_only = true
     config.generators do |generate|
       generate.assets false
       generate.helper false
